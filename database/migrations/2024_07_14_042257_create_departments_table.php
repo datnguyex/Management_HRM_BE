@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('departments', function (Blueprint $table) {
             $table->id('department_id'); // Auto-incrementing primary key
-            $table->unsignedBigInteger('manager_id')->unique(); // Unique constraint
-            $table->unsignedBigInteger('brand_id')->nullable();
+            $table->unsignedBigInteger('managerID')->unique(); // Unique constraint
+            $table->unsignedBigInteger('brandID')->nullable();
             $table->string('department_name');
             $table->timestamps(); // Adds created_at and updated_at columns
 

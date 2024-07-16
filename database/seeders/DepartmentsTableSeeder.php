@@ -15,22 +15,22 @@ class DepartmentsTableSeeder extends Seeder
     {
         DB::table('departments')->insert([
             [
-                'id' => 1,
-                'manager_id' => 1,
-                'brand_id' =>  1,
-                'departments_name' => 'Nhân sự'
+                'department_id' => 1,
+                'managerID' => 1,
+                'brandID' =>  1,
+                'department_name' => 'Nhân sự'
             ],
             [
-                'id' => 2,
-                'manager_id' => 1,
-                'brand_id' =>  1,
-                'departments_name' => 'Kế Toán'
+                'department_id' => 2,
+                'managerID' => 2,
+                'brandID' =>  1,
+                'department_name' => 'Kế Toán'
             ],
             [
-                'id' => 3,
-                'manager_id' => 1,
-                'brand_id' =>  1,
-                'departments_name' => 'IT'
+                'department_id' => 3,
+                'managerID' => 3,
+                'brandID' =>  1,
+                'department_name' => 'IT'
             ],
         ]);
     }
