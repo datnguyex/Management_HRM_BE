@@ -2,27 +2,28 @@
 
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 
-class Employee extends Authenticatable
+class Employee extends Model
 {
-    use HasFactory, HasApiTokens;
+    use HasFactory;
 
-    protected $guard = 'employee';
-    
+    protected $table = "employees";
+
     protected $fillable = [
-        'department_id',
-        'fullName',
-        'DOB',
-        'phone',
+        'fullname',
+        'nickname',
         'img',
-        'email',
         'address',
-    ];
-    protected $hidden = [
-      
+        'phone',
+        'dob',
+        'sex',
+        'email',
+        'start_date',
+        'finish_date',
+        'type',
+        'position',
+        'state_work'
     ];
 }

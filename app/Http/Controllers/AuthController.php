@@ -110,7 +110,7 @@ class AuthController extends Controller
                 $userID = $account->id;
 
                 $token = $account->createToken('token')->plainTextToken;
-                $cookie = cookie('jwt'.$userID, $token, 10);
+                $cookie = cookie('jwt' . $userID, $token, 10);
                 return response()->json([
                     'message' => 'Đăng nhập thành công',
                     'account' => $account,
@@ -125,10 +125,11 @@ class AuthController extends Controller
                 $token = $admin->createToken('token')->plainTextToken;
                 $cookie = cookie('jwt', $token, 10);
                 return response()->json([
-                    'message' => 'Đăng nhập thành công', 
-                    'admin' => $admin, 
-                    'token' => $token], 200)
-                ->withCookie($cookie);
+                    'message' => 'Đăng nhập thành công',
+                    'admin' => $admin,
+                    'token' => $token
+                ], 200)
+                    ->withCookie($cookie);
             }
             return response()->json(['errors' => 'Thông tin đăng nhập không hợp lệ'], 401);
         }
