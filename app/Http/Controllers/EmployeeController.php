@@ -13,7 +13,7 @@ class EmployeeController extends Controller
         $employees = Employee::all();
 
         return response()->json([
-            'result' => $employees
+            'employees' => $employees
         ], 200);
     }
 

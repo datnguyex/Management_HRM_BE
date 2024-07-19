@@ -14,7 +14,7 @@ class TeamDetailSeeder extends Seeder
     public function run(): void
     {
         //
-        DB::table("team_detail")->insert([
+        DB::table("team_details")->insert([
             [
                 "id" => 1,
                 "memberID" => 1,
@@ -32,17 +32,17 @@ class TeamDetailSeeder extends Seeder
             ],
 
             [
-                "id" => 1,
+                "id" => 4,
                 "memberID" => 4,
                 "teamID" => 2,
             ],
             [
-                "id" => 2,
+                "id" => 5,
                 "memberID" => 5,
                 "teamID" => 2,
             ],
             [
-                "id" => 3,
+                "id" => 6,
                 "memberID" => 6,
                 "teamID" => 2,
             ]

@@ -26,32 +26,33 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('login', [AuthController::class, 'login']);
 Route::post('register', [AuthController::class, 'register']);
 
-Route::controller(EmployeeController::class)->group(function () {
-    Route::get('employees', 'index');
-    Route::get('employees/{id}', 'show');
-    Route::get('employees/{$id}', 'update');
-    Route::get('employees/{$id}', 'destroy');
-    Route::get('employees', 'store');
+//**Route emoloyees */
+Route::prefix('employees')->controller(EmployeeController::class)->group(function () {
+    Route::get('list', 'index');
+    Route::get('{id}', 'show');
+    Route::put('{id}', 'update');
+    Route::delete('{id}', 'destroy');
+    Route::post('/', 'store');
+});
+
+//**Route teams */
+Route::prefix('teams')->controller(TeamController::class)->group(function () {
+    Route::get('list', 'index');
+    Route::get('{id}', 'show');
+    Route::put('{id}', 'update');
+    Route::delete('{id}', 'destroy');
+    Route::post('/', 'store');
+    Route::get('getEmployeeWithID/{id}', 'getEmployeeWithID');
 });
 
 
-// Route::controller(TeamController::class)->group(function () {
-//     Route::get('teams', 'index');
-//     Route::get('teams/{id}', 'show');
-//     Route::get('teams/{$id}', 'update');
-//     Route::get('teams/{$id}', 'destroy');
-//     Route::get('teams', 'store');
-// });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('register',[AuthController::class,'register']);
 
-
 Route::get('getAllDepartment',[DepartmentController::class,'getAllDepartment']);
-
-
 
 // Route::get('setSidebar',[AuthController::class,'setSidebar']);
 Route::get('profileUser',[UserController::class,'profileUser']);

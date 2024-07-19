@@ -4,18 +4,38 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Team;
+use App\Models\TeamDetail;
 
 class TeamController extends Controller
 {
     //get Teams
     public function index()
     {
-
-        $teams = Team::all();
-
+        $teams = Team::with("member")->get();
+        $teamDetails = TeamDetail::with(["member", "teams"])->get();
         return response()->json([
             'teams' => $teams,
+            'teamDetails' => $teamDetails,
         ], 200);
+    }
+
+    public function getEmployeeWithID($id) {
+        try {
+            $teamsDetails = TeamDetail::with("member")->get();
+            foreach ($teamsDetails as $team) {
+                if($team->memberID = $id) {
+                    return response()->json([
+                        "member" => $team->member
+                    ],200);
+                }
+            }
+
+        } catch (\Exception $e) {
+            return response()->json([
+                "massage"=> $e->getMessage()
+            ],500);
+        }
+
     }
 
     public function store(Request $request)
